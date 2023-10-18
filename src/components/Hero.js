@@ -66,7 +66,12 @@ const Hero = () => {
       <div class="carousel">
         <div class="carousel_inner">
           <div class="carousel_item carousel_item__active">
-            <img src={Img1} alt="" class="carousel_img" />
+            <img
+              className="w-full h-[500px]"
+              src={Img1}
+              alt=""
+              class="carousel_img"
+            />
           </div>
           <div class="carousel_caption">
             <p class="carousel_subtitle"></p>
@@ -75,7 +80,12 @@ const Hero = () => {
             <p class="carousel_history"></p>
           </div>
           <div class="carousel_item ">
-            <img src={Img2} alt="" class="carousel_img" />
+            <img
+              className="w-full h-[500px]"
+              src={Img2}
+              alt=""
+              class="carousel_img"
+            />
           </div>
           <div class="carousel_caption">
             <p class="carousel_subtitle"></p>
@@ -84,7 +94,12 @@ const Hero = () => {
             <p class="carousel_history"></p>
           </div>
           <div class="carousel_item ">
-            <img src={Img3} alt="" class="carousel_img" />
+            <img
+              className="w-full h-[500px]"
+              src={Img3}
+              alt=""
+              class="carousel_img"
+            />
           </div>
           <div class="carousel_caption">
             <p class="carousel_subtitle"></p>

@@ -1,8 +1,7 @@
 import React, { useContext, useState } from "react";
 //import link
 import { Link } from "react-router-dom";
-//import icons
-import { BsPlus, BsEyeFill } from "react-icons/bs";
+
 //import cart context
 import { CartContext } from "../contexts/CartContext";
 import Modal from "../components/Modal"; // Import the Modal component
@@ -41,21 +40,12 @@ const Product = ({ product }) => {
         <p className=" font-semibold text-slate-500 "> $ {price}</p>
       </div>
       {/* buttons */}
-      <div className="flex flex-row gap-x-5 justify-center items-center">
+      <div className="flex flex-row gap-x-5 justify-center items-center mt-5">
         <button
-          onClick={() => addToCart(product, id)}
-          className="bg-orange-300 p-2"
+          onClick={() => addToCart(product, product.id)}
+          className="bg-primary py-2 px-8 text-white"
         >
-          <div>
-            {" "}
-            <BsPlus />{" "}
-          </div>
-        </button>
-        <button onClick={openModal} className=" p-2">
-          <div>
-            {" "}
-            <BsEyeFill />{" "}
-          </div>
+          Add to cart
         </button>
       </div>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
