@@ -9,8 +9,20 @@ import Modal from "../components/Modal"; // Import the Modal component
 const Product = ({ product }) => {
   const { addToCart } = useContext(CartContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // state for change button text
+  const [buttonText, setButtonText] = useState("Add to cart");
+
+  const [colorBg, setColorBg] = useState("bg-primary text-white px-4 py-3");
+
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  const handleAddToCart = () => {
+    addToCart(product, product.id);
+    // change button text after click
+    setButtonText("Added to cart");
+    setColorBg("");
+  };
 
   //destructure product
   const { id, image, category, title, price, description } = product;
@@ -42,10 +54,13 @@ const Product = ({ product }) => {
       {/* buttons */}
       <div className="flex flex-row gap-x-5 justify-center items-center mt-5">
         <button
-          onClick={() => addToCart(product, product.id)}
-          className="bg-primary py-2 px-8 text-white"
+          // deactivate of button after add to cart
+          onClick={buttonText === "Added to cart" ? null : handleAddToCart}
+          className={colorBg}
+          // deactivate of button after add to cart
+          disabled={buttonText === "Added to cart"}
         >
-          Add to cart
+          {buttonText}
         </button>
       </div>
       <Modal isOpen={isModalOpen} onClose={closeModal}>

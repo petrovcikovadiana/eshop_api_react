@@ -7,6 +7,10 @@
     @apply font-primary text-primary;
   }
 
+  .custom-position {
+    object-position: 60% -3px;
+  }
+
   /* CSS for Modal */
   .modal {
     display: none;
@@ -83,7 +87,9 @@
 
   .carousel_img {
     display: block;
-    width: 100%;
+    object-fit: cover; /* This makes the image cover the container */
+    object-position: center top; /* This centers the image horizontally and crops from the top */
+    width: 100%; /* Set the width to 100% to fill the container horizontally */
     height: 400px;
   }
 
