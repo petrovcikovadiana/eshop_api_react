@@ -27,7 +27,6 @@ const App = () => {
         <Sidebar />
         <Footer />
       </Router>
-      {/* Add the modal code here */}
     </div>
   );
 };
