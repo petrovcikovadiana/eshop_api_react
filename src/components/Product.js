@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 //import link
 import { Link } from "react-router-dom";
+import { BsXLg } from "react-icons/bs";
 
 //import cart context
 import { CartContext } from "../contexts/CartContext";
@@ -12,7 +13,7 @@ const Product = ({ product }) => {
   // state for change button text
   const [buttonText, setButtonText] = useState("Add to cart");
 
-  const [colorBg, setColorBg] = useState("bg-primary text-white px-4 py-3");
+  const [colorBg, setColorBg] = useState("bg-primary text-white px-4 py-2");
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -29,7 +30,7 @@ const Product = ({ product }) => {
   return (
     <div>
       <div className="border border-[#E4E4E4] h-[300px] mb-4 relative overflow-hidden group transition">
-        <div className="w-full h-full flex justify-center items-center">
+        <div className="w-full h-full flex justify-center items-center ">
           {/* image */}
           <div>
             <div className="w-[200px] mx-auto flex justify-center items-center">
@@ -44,7 +45,7 @@ const Product = ({ product }) => {
         </div>
       </div>
       {/* category & price */}
-      <div>
+      <div className=" h-32">
         <div className="text-sm capitalize text-slate-700 mb-1">{category}</div>{" "}
         <h2 onClick={openModal} className=" font-semibold mb-1 cursor-pointer">
           {title}
@@ -52,7 +53,7 @@ const Product = ({ product }) => {
         <p className=" font-semibold text-slate-500 "> $ {price}</p>
       </div>
       {/* buttons */}
-      <div className="flex flex-row gap-x-5 justify-center items-center mt-5">
+      <div className="flex flex-col justify-center items-center mt-5 ">
         <button
           // deactivate of button after add to cart
           onClick={buttonText === "Added to cart" ? null : handleAddToCart}
@@ -86,9 +87,9 @@ const Product = ({ product }) => {
             </button>
             <button
               onClick={closeModal}
-              className="modal-close-button absolute top-2 right-2"
+              className="modal-close-button absolute -top-28 right-5"
             >
-              Close
+              <BsXLg />
             </button>
           </div>
         </div>
