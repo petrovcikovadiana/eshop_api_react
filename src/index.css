@@ -141,6 +141,63 @@
     font-family: "Raleway", sans-serif;
   }
 
+  .mobile-menu {
+    display: none;
+  }
+
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 3px 0;
+  }
+
+  .mobile-menu-categories {
+    display: none;
+    position: absolute;
+    background: white;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+
+  .mobile-menu-categories ul {
+    list-style: none;
+    padding: 0;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .mobile-menu-categories li {
+    cursor: pointer;
+  }
+
+  /* Media query for mobile view */
+  @media (max-width: 768px) {
+    .mobile-menu-categories {
+      display: block;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .mobile-menu {
+      display: block;
+    }
+
+    .desktop-menu {
+      display: none;
+    }
+  }
+
   .section {
     @apply py-8 lg:py-24 lg:h-[400px] flex items-center;
   }

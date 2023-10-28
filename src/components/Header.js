@@ -10,14 +10,17 @@ const Header = () => {
 
   const [categoryData, setCategoryData] = useState(null);
   const [showCategories, setShowCategories] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  useEffect(() => {
+    fetchDataAndDisplay();
+  }, []);
 
   const fetchDataAndDisplay = () => {
     fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
       .then((json) => {
         setCategoryData(json);
-
-        // display categories after fetch
         setShowCategories(true);
       });
   };
@@ -25,7 +28,7 @@ const Header = () => {
   const renderCategories = () => {
     if (showCategories && categoryData) {
       return (
-        <ul>
+        <ul className="flex flex-col md:flex-row space-x-10 capitalize">
           {categoryData.map((category, index) => (
             <li key={index}>{category}</li>
           ))}
@@ -33,6 +36,10 @@ const Header = () => {
       );
     }
     return null;
+  };
+
+  const toggleMobileMenu = () => {
+    setShowMobileMenu(!showMobileMenu); // Toggle mobile menu visibility
   };
 
   return (
@@ -43,10 +50,20 @@ const Header = () => {
             <h2>ESHOP</h2>
           </div>
         </Link>
-        <div>
-          <button id="categoryButton" onClick={fetchDataAndDisplay}>
-            Category
-          </button>
+        <div className="mobile-menu" onClick={toggleMobileMenu}>
+          <div className="hamburger-icon">
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+          </div>
+          {showMobileMenu && (
+            <div className="mobile-menu-categories bg-orange-100">
+              {renderCategories()}
+            </div>
+          )}
+        </div>
+        <div className="desktop-menu">
+          <ul id="dataDisplay">{renderCategories()}</ul>
         </div>
         <div
           onClick={() => setIsOpen(!isOpen)}
@@ -58,11 +75,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-row mx-auto items-center justify-center ">
-        <ul className=" " id="dataDisplay">
-          {renderCategories()}
-        </ul>
-      </div>
+      <div className="flex flex-row mx-auto items-center justify-center "></div>
     </header>
   );
 };
