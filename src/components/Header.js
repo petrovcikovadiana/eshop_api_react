@@ -10,7 +10,7 @@ const Header = () => {
 
   const [categoryData, setCategoryData] = useState(null);
   const [showCategories, setShowCategories] = useState(false);
-  const [showMobileMenu, setShowMobileMenu] = useState(false); // State to control mobile menu visibility
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   useEffect(() => {
     fetchDataAndDisplay();
